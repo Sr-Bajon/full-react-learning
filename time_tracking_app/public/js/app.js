@@ -1,4 +1,6 @@
-class TimerDashboard extends React.Component {
+class TimersDashboard extends React.Component {
+  // contenedor principal
+  // contiene el contenedor de timers y el boton + para crear uno nuevo
   render() {
     return (
       <div className='ui three column centered grid'>
@@ -14,6 +16,7 @@ class TimerDashboard extends React.Component {
 }
 
 class EditableTimerList extends React.Component {
+  // contenedor de timers editables
   render() {
     return (
       <div id='timers'>
@@ -22,14 +25,14 @@ class EditableTimerList extends React.Component {
           project='Web Domination'
           elapsed='8986300'
           runningSince={null}
-          editFormOpen={false}
+          editFormOpen={true}
         />
         <EditableTimer
           title='Learn extreme ironing'
           project='World Domination'
           elapsed='3890985'
           runningSince={null}
-          editFormOpen={true}
+          editFormOpen={false}
         />
       </div>
     );
@@ -37,6 +40,7 @@ class EditableTimerList extends React.Component {
 }
 
 class EditableTimer extends React.Component {
+  // contenedor de timer o timer en modo edicion
   render() {
     if (this.props.editFormOpen) {
       return (
@@ -59,6 +63,7 @@ class EditableTimer extends React.Component {
 }
 
 class TimerForm extends React.Component {
+  // timer en su forma de edicion
   render() {
     // si title existe se trata de un timer ya creado y por lo tanto usamos
     // update
@@ -91,6 +96,7 @@ class TimerForm extends React.Component {
 }
 
 class ToggleableTimerForm extends React.Component {
+  // renderiza el boton + o el formulario de timerForm
   render() {
     if (this.props.isOpen) {
       return (
@@ -107,3 +113,43 @@ class ToggleableTimerForm extends React.Component {
     }
   }
 }
+
+class Timer extends React.Component {
+  render() {
+    const elapsedString = helpers.renderElapsedString(this.props.elapsed);
+    return (
+      <div className='ui centered card'>
+        <div className='content'>
+          <div className='header'>
+            {this.props.title}
+          </div>
+          <div className='meta'>
+            {this.props.project}
+          </div>
+          <div className='center aligned description'>
+            <h2>
+              {elapsedString}
+            </h2>
+          </div>
+          <div className='extra content'>
+            <span className='right floated edit icon'>
+              <i className='edit icon'/>
+            </span>
+            <span className='right floated trash icon'>
+              <i className='trash icon'/>
+            </span>
+          </div>
+        </div>
+        <div className='ui bottom attached blue basic button'>
+          Start
+        </div>
+      </div>
+    );
+  }
+}
+
+
+ReactDOM.render(
+  <TimersDashboard />,
+  document.getElementById('content')
+);
