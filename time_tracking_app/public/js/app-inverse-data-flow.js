@@ -17,25 +17,27 @@ class TimersDashboard extends React.Component {
   // ser calculado
 
   state = {
-    timers: []
+    timers: [
+      {
+        title       : 'Practice squat',
+        project     : 'Gym Chores',
+        id          : uuid.v4(),
+        elapsed     : 5456099,
+        runningSince: Date.now(),
+      },
+      {
+        title       : 'Bake squash',
+        project     : 'Kitchen Chores',
+        id          : uuid.v4(),
+        elapsed     : 1273998,
+        runningSince: null,
+      },
+    ],
   };
 
-  componentDidMount() {
-    this.loadTimersFromServer();
-    setInterval(this.loadTimersFromServer, 5000);
-  }
-
-  loadTimersFromServer = () => {
-    client.getTimers((serverTimers) => (
-        this.setState({timers: serverTimers})
-      )
-    );
-  };
 
   handleCreateFormSubmit = (timer) => {
     this.createTimer(timer);
-
-    client.createTimer(t);
   };
 
   createTimer = (timer) => {
@@ -63,16 +65,10 @@ class TimersDashboard extends React.Component {
         }
       }),
     });
-
-    client.updateTimer(attrs);
   };
 
   handleTrashClick = (timerId) => {
     this.deleteTimer(timerId);
-
-    client.deleteTimer(
-      {id: timerId}
-    );
   };
 
   handleStartClick = (timerId) => {
@@ -102,10 +98,6 @@ class TimersDashboard extends React.Component {
         }
       }),
     });
-
-    client.startTimer(
-      {id: timerId, start: now}
-    );
   };
 
   stopTimer = (timerId) => {
@@ -123,10 +115,6 @@ class TimersDashboard extends React.Component {
         }
       }),
     });
-
-    client.stopTimer(
-      {id: timerId, stop: now}
-    );
   };
 
   render() {

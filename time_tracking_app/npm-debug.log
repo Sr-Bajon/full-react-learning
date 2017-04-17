@@ -1,18 +1,18 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'run', 'reset-data' ]
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'run', 'server' ]
 2 info using npm@3.10.10
 3 info using node@v6.10.1
-4 verbose run-script [ 'prereset-data', 'reset-data', 'postreset-data' ]
-5 info lifecycle timers_app@1.1.0~prereset-data: timers_app@1.1.0
-6 silly lifecycle timers_app@1.1.0~prereset-data: no script for prereset-data, continuing
-7 info lifecycle timers_app@1.1.0~reset-data: timers_app@1.1.0
-8 verbose lifecycle timers_app@1.1.0~reset-data: unsafe-perm in lifecycle true
-9 verbose lifecycle timers_app@1.1.0~reset-data: PATH: /usr/lib/node_modules/npm/bin/node-gyp-bin:/home/ismael/Proyectos/full-stack-react-learning/time_tracking_app/node_modules/.bin:/home/ismael/Proyectos/full-stack-react-learning/time_tracking_app/node_modules/.bin:/home/ismael/.config/yarn/link/node_modules/.bin:/home/ismael/Proyectos/full-stack-react-learning/time_tracking_app/node_modules/.bin:/home/ismael/.config/yarn/link/node_modules/.bin:/usr/lib/node_modules/yarn/bin/node-gyp-bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
-10 verbose lifecycle timers_app@1.1.0~reset-data: CWD: /home/ismael/Proyectos/full-stack-react-learning/time_tracking_app
-11 silly lifecycle timers_app@1.1.0~reset-data: Args: [ '-c', 'cp data.json.pristine data.json' ]
-12 silly lifecycle timers_app@1.1.0~reset-data: Returned: code: 1  signal: null
-13 info lifecycle timers_app@1.1.0~reset-data: Failed to exec reset-data script
-14 verbose stack Error: timers_app@1.1.0 reset-data: `cp data.json.pristine data.json`
+4 verbose run-script [ 'preserver', 'server', 'postserver' ]
+5 info lifecycle timers_app@1.1.0~preserver: timers_app@1.1.0
+6 silly lifecycle timers_app@1.1.0~preserver: no script for preserver, continuing
+7 info lifecycle timers_app@1.1.0~server: timers_app@1.1.0
+8 verbose lifecycle timers_app@1.1.0~server: unsafe-perm in lifecycle true
+9 verbose lifecycle timers_app@1.1.0~server: PATH: /usr/lib/node_modules/npm/bin/node-gyp-bin:/home/ismael/Proyectos/CLOUD/GIT/Sr-Bajon/full-stack-react-learning/time_tracking_app/node_modules/.bin:/home/ismael/Proyectos/CLOUD/GIT/Sr-Bajon/full-stack-react-learning/time_tracking_app/node_modules/.bin:/home/ismael/.config/yarn/link/node_modules/.bin:/home/ismael/Proyectos/CLOUD/GIT/Sr-Bajon/full-stack-react-learning/time_tracking_app/node_modules/.bin:/home/ismael/.config/yarn/link/node_modules/.bin:/usr/lib/node_modules/yarn/bin/node-gyp-bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+10 verbose lifecycle timers_app@1.1.0~server: CWD: /home/ismael/Proyectos/CLOUD/GIT/Sr-Bajon/full-stack-react-learning/time_tracking_app
+11 silly lifecycle timers_app@1.1.0~server: Args: [ '-c', 'babel-node server.js' ]
+12 silly lifecycle timers_app@1.1.0~server: Returned: code: 1  signal: null
+13 info lifecycle timers_app@1.1.0~server: Failed to exec server script
+14 verbose stack Error: timers_app@1.1.0 server: `babel-node server.js`
 14 verbose stack Exit status 1
 14 verbose stack     at EventEmitter.<anonymous> (/usr/lib/node_modules/npm/lib/utils/lifecycle.js:255:16)
 14 verbose stack     at emitTwo (events.js:106:13)
@@ -23,20 +23,20 @@
 14 verbose stack     at maybeClose (internal/child_process.js:886:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
 15 verbose pkgid timers_app@1.1.0
-16 verbose cwd /home/ismael/Proyectos/full-stack-react-learning/time_tracking_app
+16 verbose cwd /home/ismael/Proyectos/CLOUD/GIT/Sr-Bajon/full-stack-react-learning/time_tracking_app
 17 error Linux 4.4.0-72-generic
-18 error argv "/usr/bin/nodejs" "/usr/bin/npm" "run" "reset-data"
+18 error argv "/usr/bin/nodejs" "/usr/bin/npm" "run" "server"
 19 error node v6.10.1
 20 error npm  v3.10.10
 21 error code ELIFECYCLE
-22 error timers_app@1.1.0 reset-data: `cp data.json.pristine data.json`
+22 error timers_app@1.1.0 server: `babel-node server.js`
 22 error Exit status 1
-23 error Failed at the timers_app@1.1.0 reset-data script 'cp data.json.pristine data.json'.
+23 error Failed at the timers_app@1.1.0 server script 'babel-node server.js'.
 23 error Make sure you have the latest version of node.js and npm installed.
 23 error If you do, this is most likely a problem with the timers_app package,
 23 error not with npm itself.
 23 error Tell the author that this fails on your system:
-23 error     cp data.json.pristine data.json
+23 error     babel-node server.js
 23 error You can get information on how to open an issue for this project with:
 23 error     npm bugs timers_app
 23 error Or if that isn't available, you can get their info via:
