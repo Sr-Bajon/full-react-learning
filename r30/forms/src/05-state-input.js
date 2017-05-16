@@ -7,18 +7,20 @@ module.exports = class extends React.Component {
   static displayName = "05-state-input";
 
   state = {
-    name: '',
+    name : '',
     names: [],
   };
 
   onFormSubmit = (evt) => {
-    const names = [ ...this.state.names, this.state.name ];
-    this.setState({ names: names, name: '' });
+    if (this.state.name !== '') {
+      const names = [...this.state.names, this.state.name];
+      this.setState({names: names, name: ''});
+    }
     evt.preventDefault();
   };
 
   onNameChange = (evt) => {
-    this.setState({ name: evt.target.value });
+    this.setState({name: evt.target.value});
   };
 
   render() {
@@ -33,7 +35,7 @@ module.exports = class extends React.Component {
             onChange={this.onNameChange}
           />
 
-          <input type='submit' />
+          <input type='submit'/>
         </form>
 
         <div>

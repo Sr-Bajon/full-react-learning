@@ -30,6 +30,7 @@ module.exports = class extends React.Component {
   }
 
   onSelectDepartment = (evt) => {
+    // al seleccionar un departamento hay que vaciar el campo course
     const department = evt.target.value;
     const course = null;
     this.setState({ department, course });
@@ -46,12 +47,14 @@ module.exports = class extends React.Component {
   };
 
   fetch = (department) => {
+    // se establece loading a true por si queremos establecer un feedback visual
     this.setState({ _loading: true, courses: [] });
     apiClient(department).then((courses) => {
       this.setState({ _loading: false, courses: courses });
     });
   };
 
+  // se separa el render en dos funciones que devuelven un elemento JSX
   renderDepartmentSelect = () => {
     return (
       <select

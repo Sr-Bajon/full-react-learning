@@ -10,12 +10,12 @@ module.exports = class extends React.Component {
   static displayName = "08-field-component-form";
 
   state = {
-    fields: {
-      name: '',
+    fields     : {
+      name : '',
       email: '',
     },
     fieldErrors: {},
-    people: [],
+    people     : [],
   };
 
   onFormSubmit = (evt) => {
@@ -29,25 +29,27 @@ module.exports = class extends React.Component {
     this.setState({
       people: people.concat(person),
       fields: {
-        name: '',
+        name : '',
         email: '',
       },
     });
   };
 
-  onInputChange = ({ name, value, error }) => {
-    const fields = this.state.fields;
+  onInputChange = ({name, value, error}) => {
+    const fields      = this.state.fields;
     const fieldErrors = this.state.fieldErrors;
 
-    fields[name] = value;
+    fields[name]      = value;
     fieldErrors[name] = error;
 
-    this.setState({ fields, fieldErrors });
+    this.setState({fields, fieldErrors});
   };
 
   validate = () => {
-    const person = this.state.fields;
+    const person      = this.state.fields;
     const fieldErrors = this.state.fieldErrors;
+    // como filter devuelve solo los que son true si fieldErrors es false o
+    // undefined no lo devuelve
     const errMessages = Object.keys(fieldErrors).filter((k) => fieldErrors[k]);
 
     if (!person.name) return true;
@@ -84,13 +86,13 @@ module.exports = class extends React.Component {
 
           <br />
 
-          <input type='submit' disabled={this.validate()} />
+          <input type='submit' disabled={this.validate()}/>
         </form>
 
         <div>
           <h3>People</h3>
           <ul>
-            { this.state.people.map(({ name, email }, i) =>
+            { this.state.people.map(({name, email}, i) =>
               <li key={i}>{name} ({email})</li>
             ) }
           </ul>

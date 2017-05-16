@@ -1,6 +1,9 @@
 import React, { PropTypes } from 'react';
 
 module.exports = class extends React.Component {
+  // observa que aunque el componente recibe todos estos props el componente
+  // en el render sólo usa el placeholder, los demas se usan en el state o en
+  // la funcion onChange
   static propTypes = {
     placeholder: PropTypes.string,
     name: PropTypes.string.isRequired,
@@ -25,6 +28,7 @@ module.exports = class extends React.Component {
 
     this.setState({ value, error });
 
+    // esta función onChange es la que actualizará el estado de la clase padre
     this.props.onChange({ name, value, error });
   };
 

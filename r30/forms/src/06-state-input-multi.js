@@ -8,31 +8,28 @@ module.exports = class extends React.Component {
 
   state = {
     fields: {
-      name: '',
+      name : '',
       email: ''
     },
     people: [],
   };
 
   onFormSubmit = (evt) => {
-    const people = [
-      ...this.state.people,
-      this.state.fields,
-    ];
-    this.setState({ 
-      people, 
+    const people = [...this.state.people, this.state.fields,];
+    this.setState({
+      people,
       fields: {
-        name: '',
+        name : '',
         email: ''
-      } 
+      }
     });
     evt.preventDefault();
   };
 
   onInputChange = (evt) => {
-    const fields = this.state.fields;
+    const fields            = this.state.fields;
     fields[evt.target.name] = evt.target.value;
-    this.setState({ fields });
+    this.setState({fields});
   };
 
   render() {
@@ -55,13 +52,13 @@ module.exports = class extends React.Component {
             onChange={this.onInputChange}
           />
 
-          <input type='submit' />
+          <input type='submit'/>
         </form>
 
         <div>
           <h3>People</h3>
           <ul>
-            { this.state.people.map(({ name, email }, i) =>
+            { this.state.people.map(({name, email}, i) =>
               <li key={i}>{name} ({ email })</li>
             ) }
           </ul>

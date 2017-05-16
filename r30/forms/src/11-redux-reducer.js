@@ -4,18 +4,18 @@ import {
 } from './11-redux-actions.js';
 
 const initialState = {
-  people: [],
-  isLoading: false,
+  people    : [],
+  isLoading : false,
   saveStatus: 'READY',
-  person: {
-    name: '',
-    email: '',
-    course: null,
+  person    : {
+    name      : '',
+    email     : '',
+    course    : null,
     department: null
   },
 };
 
-export function reducer (state = initialState, action) {
+export function reducer(state = initialState, action) {
   switch (action.type) {
     case FETCH_PEOPLE_REQUEST:
       return Object.assign({}, state, {
@@ -23,7 +23,7 @@ export function reducer (state = initialState, action) {
       });
     case FETCH_PEOPLE_SUCCESS:
       return Object.assign({}, state, {
-        people: action.people,
+        people   : action.people,
         isLoading: false
       });
     case SAVE_PEOPLE_REQUEST:
@@ -36,11 +36,11 @@ export function reducer (state = initialState, action) {
       });
     case SAVE_PEOPLE_SUCCESS:
       return Object.assign({}, state, {
-        people: action.people,
-        person: {
-          name: '',
-          email: '',
-          course: null,
+        people    : action.people,
+        person    : {
+          name      : '',
+          email     : '',
+          course    : null,
           department: null
         },
         saveStatus: 'SUCCESS'
@@ -48,4 +48,5 @@ export function reducer (state = initialState, action) {
     default:
       return state;
   }
+
 }
